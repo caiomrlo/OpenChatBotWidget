@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="style.css">
+
+<script>
+window.OpenChatBotWidgetConfig = {
+  webhook: {
+    url: 'WEBHOOK_URL',
+    route: 'general'
+  },
+  branding: {
+    logo: 'LOGO_URL',
+    name: 'BRAND_NAME', 
+    welcomeText: 'Hello, how can we help?', 
+    responseTimeText: 'We usually respond immediately.', 
+    newChatButtonText: { 
+      text: 'Start chat',
+      enabled: true 
+    }
+  },
+  style: {
+    primaryColor: '#215dff', 
+    secondaryColor: '#218eff', 
+    position: 'left', 
+    backgroundColor: '#ffffff', 
+    fontColor: '#333333' 
+  },
+  speechBubble: {
+    enabled: true,
+    text: 'Need help?'
+  },
+  predefinedMessages: [
+    "OPTION_1",
+    "OPTION_2",
+  ],
+};
+</script>
+
+<script src="script.js" defer></script>
