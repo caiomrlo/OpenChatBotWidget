@@ -199,12 +199,23 @@
 
         const placeholders = {
             email: 'seu_email@example.com',
-            phone: '(XX) XXXXX-XXXX',
+            phone: '(99) 99999-9999',
             name: 'Seu nome completo'
         };
         
         input.type = fieldType === 'phone' ? 'tel' : (fieldType === 'email' ? 'email' : 'text');
         input.placeholder = placeholders[fieldType] || '';
+
+        if (fieldType === 'phone') {
+            input.addEventListener('input', (e) => {
+                let v = e.target.value.replace(/\D/g, "");
+                if (v.length > 11) v = v.substring(0, 11);
+                v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+                v = v.replace(/(\d)(\d{4})$/, "$1-$2");
+                e.target.value = v;
+                input.setCustomValidity('');
+            });
+        }
 
         const newSendButton = UI.sendButton.cloneNode(true);
         newSendButton.style.display = '';
@@ -215,6 +226,16 @@
 
         const submitValue = () => {
             const value = input.value.trim();
+
+            if (fieldType === 'phone') {
+                const digits = value.replace(/\D/g, '');
+                if (digits.length < 10) {
+                    input.setCustomValidity('Informe um telefone válido (DDD + número).');
+                } else {
+                    input.setCustomValidity('');
+                }
+            }
+
             if (input.reportValidity() && value) {
                 sendMessage(`field/${fieldType}:${value}`, value);
                 restoreDefaultInput();
