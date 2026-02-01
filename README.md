@@ -19,7 +19,7 @@ OpenChatBotWidget is a drop-in chat bubble that lets you embed an n8n-powered co
 2. Paste the widget assets into your page. **The inline configuration must come before the script tag**, so the widget can read `window.OpenChatBotWidgetConfig` on load.
 
 ```html
-<link rel="stylesheet" href="https://open-chatbot-widget.b-cdn.net/versions/1.0.0/style.css">
+<link rel="stylesheet" href="/style.css">
 
 <script>
 window.OpenChatBotWidgetConfig = {
@@ -33,7 +33,7 @@ window.OpenChatBotWidgetConfig = {
     welcomeText: 'Hey there!',
     responseTimeText: 'We usually reply in a few minutes.',
     newChatButtonText: { text: 'Start chat', enabled: true },
-    poweredBy: { text: 'powered by OpenChatBotWidget', link: 'https://github.com/...' }
+    poweredBy: { text: 'by OpenChatBotWidget', link: 'https://github.com/caiomrlo' }
   },
   style: {
     primaryColor: '#215dff',
@@ -50,7 +50,7 @@ window.OpenChatBotWidgetConfig = {
 };
 </script>
 
-<script src="https://open-chatbot-widget.b-cdn.net/versions/1.0.0/script.js" defer></script>
+<script src="/script.js" defer></script>
 ```
 
 3. Deploy your page. The widget automatically injects the DOM, toggles the bubble, and handles the chat UI.

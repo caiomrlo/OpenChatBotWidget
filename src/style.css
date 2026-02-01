@@ -251,6 +251,22 @@
     color: #255cdd;
 }
 
+.chatBotWidget .chatMessage ul {
+  list-style: none;
+  padding-left: 0; 
+  margin-left: 0;
+  margin: 0;
+}
+
+.chatBotWidget .chatMessage ul li {
+  padding: 8px 0;   
+  border-bottom: 1px solid #e2e2e2;  
+}
+
+.chatBotWidget .chatMessage ul li:last-child {
+  border-bottom: none;
+}
+
 .chatBotWidget .chat__wave {
     position: relative;
 }
